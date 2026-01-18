@@ -4,22 +4,18 @@ class Solution {
         int n = M.size();
         stack<int> st;
         
-        // push all persons into stack
-        for(int i = 0; i < n; i++) {
+        for(int i = 0; i < n; i++) {                     // push all persons into stack
             st.push(i);
         }
         
-        // discard method to get a possible celebrity
-        while(st.size() > 1) {
+        while(st.size() > 1) {                          // discard method to get a possible celebrity
             int a = st.top(); st.pop();
             int b = st.top(); st.pop();
             
-            // if a knows b, a is not celebrity
-            if(M[a][b]) {
+            if(M[a][b]) {                               // if a knows b, a is not celebrity
                 st.push(b);
             } else {
-                // if a doesn't know b, b is not celebrity
-                st.push(a);
+                st.push(a);                             // if a doesn't know b, b is not celebrity
             }
         }
         
